@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0F2F5"
+    tools:context=".M">
+
+    <!-- চ্যাট বার্তা প্রদর্শনের জন্য RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/inputLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/item_message" />
+
+    <!-- ইনপুট ফিল্ড এবং বাটন ধারণ করার জন্য লেআউট -->
+    <LinearLayout
+        android:id="@+id/inputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:background="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!-- বার্তা লেখার জন্য EditText -->
+        <EditText
+            android:id="@+id/editTextMessage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="আপনার বার্তা লিখুন..."
+            android:inputType="textMultiLine"
+            android:maxLines="5"
+            android:padding="12dp"
+            android:background="@drawable/rounded_edittext"
+            android:layout_marginEnd="8dp"
+            android:textSize="16sp" />
+
+        <!-- বার্তা পাঠানোর জন্য বাটন -->
+        <ImageButton
+            android:id="@+id/buttonSend"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/send_button_bg"
+            android:contentDescription="বার্তা পাঠান"
+            android:onClick="sendMessage"
+            android:src="@drawable/ic_send_white_24dp"
+            app:tint="@android:color/white" />
+
+    </LinearLayout>
+
+    <!-- অতিরিক্ত Drawable গুলো তৈরি করতে হবে -->
+    <!-- res/drawable/rounded_edittext.xml -->
+    <!-- res/drawable/send_button_bg.xml -->
+    <!-- res/drawable/ic_send_white_24dp.xml (অথবা একটি ভেক্টর অ্যাসেট যোগ করুন) -->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

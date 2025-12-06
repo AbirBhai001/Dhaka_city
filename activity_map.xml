@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".M">
+
+    <!-- ম্যাপ ভিউ: সমস্ত মানচিত্র প্রদর্শন এখানেই হবে -->
+    <org.osmdroid.views.MapView
+        android:id="@+id/map_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- সার্চ বার এবং বাটন -->
+    <LinearLayout
+        android:id="@+id/search_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:background="#99FFFFFF"
+        android:elevation="4dp"
+        android:gravity="center_vertical">
+
+        <EditText
+            android:id="@+id/edit_text_search"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="স্থান বা প্রতিষ্ঠান সার্চ করুন..."
+            android:padding="10dp"
+            android:background="@drawable/rounded_edittext"
+            android:inputType="text"
+            android:maxLines="1"
+            android:textColor="#333333"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/button_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="সার্চ"
+            android:layout_marginStart="8dp"
+            android:backgroundTint="#007BFF"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+    <!-- তথ্যের প্যানেল (ম্যাপের নিচে স্থির থাকবে) -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/info_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:backgroundTint="#F0F8FF"
+        android:elevation="8dp"
+        app:cardCornerRadius="12dp"
+        android:visibility="gone"
+        tools:visibility="visible"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <!-- স্থান সংখ্যা -->
+            <TextView
+                android:id="@+id/text_place_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="১. একই নামে স্থান সংখ্যা: ০ টি"
+                android:textSize="14sp"
+                android:textColor="#0056B3"
+                android:paddingBottom="4dp"/>
+
+            <!-- প্রতিষ্ঠান সংখ্যা -->
+            <TextView
+                android:id="@+id/text_establishment_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="২. প্রতিষ্ঠান সংখ্যা: ০ টি"
+                android:textSize="14sp"
+                android:textColor="#0056B3"
+                android:paddingBottom="4dp"/>
+
+            <!-- প্রতিষ্ঠান নাম্বার -->
+            <TextView
+                android:id="@+id/text_phone_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="৩. প্রতিষ্ঠান নাম্বার: পাওয়া যায়নি"
+                android:textSize="14sp"
+                android:textColor="#0056B3"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>
